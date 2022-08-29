@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Olatisunkanmi/altSchool-nodeJs/issues"
   },
-  "homepage": "https://github.com/Olatisunkanmi/altSchool-nodeJs#readme"
+  "homepage": "https://github.com/Olatisunkanmi/altSchool-nodeJs#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
