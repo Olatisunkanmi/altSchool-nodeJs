@@ -15,7 +15,7 @@ const reqHand = (req, res) => {
 };
 
 const server = http.createServer(reqHand);
-const PORT = 8000;
+const PORT = 9000;
 server.listen(PORT, () => {
 	console.log(`Server started ! at Port ${PORT}`);
 });
