@@ -1,0 +1,21 @@
+{
+  "name": "altschool-nodejs",
+  "version": "1.0.0",
+  "description": "Keeping Track of my Lesson Classes from AltSchoolAfrica",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olatisunkanmi/altSchool-nodeJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olatisunkanmi/altSchool-nodeJs/issues"
+  },
+  "homepage": "https://github.com/Olatisunkanmi/altSchool-nodeJs#readme"
+}
