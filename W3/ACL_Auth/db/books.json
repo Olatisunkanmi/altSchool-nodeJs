@@ -26,5 +26,10 @@
         "title": "Things fall apart",
         "author": "Chinua Achebe",
         "year": 2000
+    },
+    {
+        "title": "ACL control in Nodejs",
+        "author": "Rising Odegua",
+        "year": 2022
     }
 ]
