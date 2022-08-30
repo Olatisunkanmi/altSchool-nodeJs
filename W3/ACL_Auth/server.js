@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { authenticateUser } = require('./auth');
+const auth = require('./authenticate');
 const booksDbPath = path.join(__dirname, 'db', 'books.json');
 
 // ! 			---------Req Handler FN for all Methods
@@ -10,15 +10,16 @@ const reqHand = (req, res) => {
 	if (req.url === '/books' && req.method === 'GET') {
 		//READ
 		// LOAD AND RETURN BOOKS after Auth
-		authenticateUser(req, res)
+		auth
+			.checkACL(req, res, ['admin', 'reader'])
 			.then(() => {
 				getAllBooks(req, res);
 			})
 			.catch((err) => {
-				res.writeHead(404);
+				res.statusCode = 401;
 				res.end(
 					JSON.stringify({
-						message: err,
+						error: err,
 					}),
 				);
 			});
