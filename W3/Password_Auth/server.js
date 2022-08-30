@@ -1,14 +1,27 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { authenticateUser } = require('./auth');
 const booksDbPath = path.join(__dirname, 'db', 'books.json');
 
 // ! 			---------Req Handler FN for all Methods
+
 const reqHand = (req, res) => {
 	if (req.url === '/books' && req.method === 'GET') {
 		//READ
-		// LOAD AND RETURN BOOKS
-		getAllBooks(req, res);
+		// LOAD AND RETURN BOOKS after Auth
+		authenticateUser(req, res)
+			.then(() => {
+				getAllBooks(req, res);
+			})
+			.catch((err) => {
+				res.writeHead(404);
+				res.end(
+					JSON.stringify({
+						message: err,
+					}),
+				);
+			});
 	} else if (req.url === '/books' && req.method === 'POST') {
 		// Create
 		addBook(req, res);
