@@ -3,7 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const USERROUTES = require('./Routes/UsersRoute');
 const BOOKSROUTES = require('./Routes/BooksRoute');
-// const ADMINROUTES = require('./Routes/AdminRoute');
+const ADMINROUTES = require('./Routes/AdminRoutes');
 app.use(express.json());
 
 app.use(morgan('common'));
@@ -14,5 +14,5 @@ app.use(morgan('common'));
 
 app.use('/api/books', BOOKSROUTES);
 app.use('/api/users', USERROUTES);
-// app.use('/api/admin', ADMINROUTES);
+app.use('/api/admin', ADMINROUTES);
 module.exports = app;
