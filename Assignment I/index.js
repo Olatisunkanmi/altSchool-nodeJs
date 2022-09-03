@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-const USERROUTE = require('./Routes/UsersRoute');
-const BOOKSROUTE = require('./Routes/BooksRoute');
+const USERROUTES = require('./Routes/UsersRoute');
+const BOOKSROUTES = require('./Routes/BooksRoute');
+// const ADMINROUTES = require('./Routes/AdminRoute');
 app.use(express.json());
 
 app.use(morgan('common'));
@@ -11,6 +12,7 @@ app.use(morgan('common'));
 // 	return res.send('That route does not exist!');
 // });
 
-app.use('/api/books', BOOKSROUTE);
-app.use('/api/books', USERROUTE);
+app.use('/api/books', BOOKSROUTES);
+app.use('/api/users', USERROUTES);
+// app.use('/api/admin', ADMINROUTES);
 module.exports = app;
