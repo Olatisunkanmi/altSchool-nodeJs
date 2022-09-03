@@ -6,6 +6,7 @@ router
 	.get(booksControllers.getAllbooks)
 	.post(booksControllers.checkId, booksControllers.createBook);
 
-// router.route('/:id');
+router.route('/request/').get(booksControllers.loanBook);
+router.route('/return/').get(booksControllers.returnBook);
 
 module.exports = router;
