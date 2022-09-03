@@ -4,7 +4,7 @@ const router = require('express').Router();
 router
 	.route('/')
 	.get(booksControllers.getAllbooks)
-	.post(booksControllers.checkId, booksControllers.createBook);
+	.post(booksControllers.createBook);
 
 router.route('/request/').get(booksControllers.loanBook);
 router.route('/return/').get(booksControllers.returnBook);
