@@ -59,7 +59,7 @@ exports.createBook = async (req, res) => {
 		});
 	}
 
-	let newbook = Books.push(newBook);
+	Books.push(newBook);
 
 	res.status(201).json({
 		status: 'success',
@@ -122,14 +122,14 @@ exports.deleteBook = async (req, res) => {
 };
 
 exports.loanBook = async (req, res) => {
-	res.status(201).json({
+	res.status(200).json({
 		status: 'success',
 		message: 'Book for load',
 	});
 };
 
 exports.returnBook = async (req, res) => {
-	res.status(201).json({
+	res.status(200).json({
 		status: 'success',
 		message: 'Book returned by User',
 	});
