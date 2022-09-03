@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
     "jest": "^29.0.1",
-    "morgan": "^1.10.0",
-    "superjest": "^0.1.0"
+    "supertest": "^6.2.4"
   }
 }
