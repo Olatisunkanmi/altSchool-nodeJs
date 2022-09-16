@@ -7,6 +7,6 @@ router
 	.route('/:id')
 	.post(userController.authUser, userController.userLogin);
 
-router.route('/:id/update').post(userController.updateDetails);
+// router.route('/:id/update').post(userController.updateDetails);
 
 module.exports = router;
