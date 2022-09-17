@@ -9,6 +9,7 @@ exports.getAllBooks = (req, res) => {
 			res.writeHead(400);
 			res.end('An Error Occured ');
 		}
+
 		res.writeHead(200, {
 			'Content-Type': 'application/json',
 			'X-Powered-By': 'bacon',
