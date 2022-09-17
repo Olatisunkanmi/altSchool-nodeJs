@@ -1,7 +1,7 @@
 const app = require('./index');
-// const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
-// const app = express();
 const port = 9000;
 app.listen(port, () => {
 	console.log(`Node   ${port}`);

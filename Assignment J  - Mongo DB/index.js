@@ -8,13 +8,9 @@ app.use(express.json());
 
 app.use(morgan('common'));
 
-// app.all('/api/books/*', (req, res) => {
-// 	return res.send('That route does not exist!');
-// });
-
-// app.use('/api/books', BOOKSROUTES);
-// app.use('/api/users', USERROUTES);
-// app.use('/api/admin', ADMINROUTES);
+app.use('/api/books', BOOKSROUTES);
+app.use('/api/users', USERROUTES);
+app.use('/api/admin', ADMINROUTES);
 
 app.use('*', (req, res, next) => {
 	res.status(404).json({
