@@ -32,6 +32,7 @@ exports.checkId = async (req, res, next) => {
 
 exports.getAllbooks = async (req, res) => {
 	let role = req.role;
+	console.log(req.ip);
 	try {
 		res.status(200).json({
 			status: 'Succes',
