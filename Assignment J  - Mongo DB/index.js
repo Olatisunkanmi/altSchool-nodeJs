@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const http = require('http');
 const morgan = require('morgan');
 const USERROUTES = require('./Routes/UsersRoute');
 const BOOKSROUTES = require('./Routes/BooksRoute');
@@ -18,4 +19,7 @@ app.use('*', (req, res, next) => {
 	});
 });
 
-module.exports = app;
+module.exports = {
+	app,
+	http,
+};
