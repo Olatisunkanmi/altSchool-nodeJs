@@ -1,53 +1,31 @@
-const path = require('path');
-const fs = require('fs');
-let Books = JSON.parse(
-	fs.readFileSync(`${__dirname}/../DB/books.json`),
-);
-let Users = JSON.parse(
-	fs.readFileSync(`${__dirname}/../DB/user.json`),
-);
+const USER = require('../Models/UserModel');
 
-exports.getAllUsers = (req, res) => {
+// Universal User.  re-used and re-init with every function
+var User;
+
+exports.getAllUsers = async (req, res) => {
+	User = await USER.find();
+
 	res.status(200).json({
 		status: 'succes',
-		results: Users.length,
+		results: User.length,
 		data: {
-			Users: Users,
+			Users: User,
 		},
 	});
 };
 
 exports.createUser = (req, res) => {
 	// Json fromm client
-	let newUser = req.body;
-	let { username, role } = newUser;
-
-	// if username || role of newUser is undefined
-	if (!username || !role) {
-		return res.status(404).json({
-			status: 'fail',
-			mesaage: 'Missing details',
-		});
-	}
 
 	// Push newly created user into Users (existing Users database)
-	Users.push(req.body);
+	User = USER.push(req.body);
 
 	res.status(200).json({
 		status: 'succes',
 		results: newUser.length,
 		data: {
-			User: newUser,
-		},
-	});
-};
-
-exports.getAllUsers = (req, res) => {
-	res.status(200).json({
-		status: 'succes',
-		results: Users.length,
-		data: {
-			User: Users,
+			User: User,
 		},
 	});
 };
