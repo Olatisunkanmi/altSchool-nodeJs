@@ -1,26 +1,10 @@
-const path = require('path');
-const fs = require('fs');
-let Books = JSON.parse(
-	fs.readFileSync(`${__dirname}/../DB/books.json`),
-);
-let Users = JSON.parse(
-	fs.readFileSync(`${__dirname}/../DB/user.json`),
-);
+const USER = require('../Models/UserModel');
 
-exports.authUser = (req, res, next) => {
-	let userId = req.params.id * 1;
-	userId = Users.find((cur) => cur.id === userId);
-	if (!userId) {
-		return res.status(404).json({
-			status: 'Fail',
-			message: 'User invalid',
-		});
-	}
-	req.userData = userId;
-	next();
-};
+// Universal User.  re-used and re-init with every function
+var User;
 
 exports.userLogin = async (req, res) => {
+	User = await USER.findById(req.params.id);
 	res.status(200).json({
 		status: 'success',
 		data: {
