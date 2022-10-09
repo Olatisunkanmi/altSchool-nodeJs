@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) => {
-	const Book = sequelize.define(
+module.exports = async (sequelize, DataTypes) => {
+	const Book = await sequelize.define(
 		'Book',
 		{
 			id: {
@@ -27,4 +27,3 @@ module.exports = (sequelize, DataTypes) => {
 
 	return Book;
 };
-// console.log(User === sequelize.models.User);
