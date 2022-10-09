@@ -1,16 +1,16 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const CONFIG = require('../config/dbConfig');
-const BookModel = require('./books');
 
 const sequelize = new Sequelize(
-	CONFIG.DB_NAME,
-	CONFIG.DB_USER,
-	CONFIG.DB_PASSOWRD,
+	'bookstore',
+	'root',
+	'@Olasunkanmi1',
 	{
 		host: CONFIG.DB_HOST,
 		dialect: CONFIG.DB_DIALECT,
 	},
-)
+);
+sequelize
 	.authenticate()
 	.then(() => {
 		console.log('Connection Successful');
@@ -25,7 +25,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // Create  Models
-db.books = BookModel(Sequelize, DataTypes);
+db.books = require('./books')(sequelize, DataTypes);
 
 // sync to modify table
 db.sequelize
