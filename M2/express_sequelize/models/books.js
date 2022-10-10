@@ -1,5 +1,5 @@
-module.exports = async (sequelize, DataTypes) => {
-	const Book = await sequelize.define(
+module.exports = (sequelize, DataTypes) => {
+	const Book = sequelize.define(
 		'Book',
 		{
 			id: {
