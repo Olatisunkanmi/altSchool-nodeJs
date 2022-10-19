@@ -17,4 +17,5 @@ class Server extends createServer {
 }
 
 // sever listen.
-const server_one = new Server(app, 3000).listen();
+var PORT = process.env.PORT || 3000;
+const server_one = new Server(app, PORT).listen();
