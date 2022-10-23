@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-const CONFIG = require('./dbConffig');
+const CONFIG = require('./DBConffig');
 const AppErr = require('./AppError');
 
 const sequelize = new Sequelize(
@@ -23,3 +23,23 @@ const seqConnect = (next) => {
 };
 
 process.nextTick(seqConnect);
+
+// initialized DB object
+const DB = {};
+DB.sequelize = sequelize;
+DB.Sequelize = Sequelize;
+
+// Init Models
+DB.Users = require('../Models/usersModel')(sequelize, DataTypes);
+DB.Orders = require('../Models/orderModels')(sequelize, DataTypes);
+
+DB.sequelize
+	.sync({ force: false })
+	.then(() => {
+		console.log('Table sync success');
+	})
+	.catch((err) => {
+		console.log(err);
+	});
+
+module.exports = DB;

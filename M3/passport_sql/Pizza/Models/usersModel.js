@@ -1,3 +1,5 @@
+const validator = require('validator');
+
 module.exports = (sequelize, DataTypes) => {
 	const User = sequelize.define(
 		'User',
@@ -15,18 +17,20 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 				unique: true,
+				validator: [validator.isEmail, 'Enter a valid Email address'],
 			},
 			password: {
-				type: DataTypes.INTEGER,
-				allowNull: false,
-			},
-			confirmPassword: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
+			// confirmPassword: {
+			// 	type: DataTypes.STRING,
+			// 	allowNull: false,
+			// },
 			user_type: {
 				type: DataTypes.STRING,
-				allowNull: false,
+				allowNull: true,
+				defaultValue: 'user',
 			},
 		},
 		{

@@ -1,16 +1,14 @@
-module.export = (params) => {
-	return class Response {
-		constructor(stausCode, message, data, TOKEN) {
-			this.message = message;
-			this.data = data;
-			this.TOKEN = TOKEN;
+class responseHandler {
+	constructor(res, data, statusCode, TOKEN) {
+		this.data = data;
+		this.TOKEN = TOKEN;
 
-			res.status(stausCode).json({
-				length: data.length,
-				status: 'success',
-				TOKEN: this.TOKEN,
-				data: this.data,
-			});
-		}
-	};
-};
+		res.status(statusCode).json({
+			length: data.length,
+			status: 'success',
+			TOKEN: this.TOKEN,
+			data: this.data,
+		});
+	}
+}
+module.exports = responseHandler;
