@@ -11,11 +11,19 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
+			email: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 			password: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
 			confirmPassword: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			user_type: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
@@ -25,5 +33,5 @@ module.exports = (sequelize, DataTypes) => {
 		},
 	);
 
-	return USers;
+	return User;
 };
