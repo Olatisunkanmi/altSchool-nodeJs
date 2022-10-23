@@ -3,24 +3,24 @@ module.exports = (sequelize, DataTypes) => {
 		'Order',
 		{
 			id: {
-				type: DataTypes.INTERGER,
+				type: DataTypes.INTEGER,
 				autoIncrement: true,
 				primaryKey: true,
 			},
-			title: {
+			goal: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			year: {
+			chained_by: {
+				type: DataTypes.INTEGER,
+				allowNull: true,
+			},
+			created_by: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			isbn: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			Author: {
-				type: DataTypes.STRING,
+			created_at: {
+				type: DataTypes.NOW,
 				allowNull: false,
 			},
 		},
