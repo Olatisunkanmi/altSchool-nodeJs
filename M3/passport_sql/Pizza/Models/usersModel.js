@@ -23,14 +23,20 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			// confirmPassword: {
-			// 	type: DataTypes.STRING,
-			// 	allowNull: false,
-			// },
 			user_type: {
 				type: DataTypes.STRING,
 				allowNull: true,
 				defaultValue: 'user',
+			},
+			campaigns: {
+				type: DataTypes.INTEGER,
+				allowNull: true,
+				defaultValue: 0,
+			},
+			chained: {
+				type: DataTypes.INTEGER,
+				allowNull: true,
+				defaultValue: 0,
 			},
 		},
 		{

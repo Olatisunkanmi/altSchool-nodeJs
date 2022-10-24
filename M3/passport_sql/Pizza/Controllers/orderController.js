@@ -17,14 +17,14 @@ exports.getAllOrders = async (req, res) => {
 };
 
 exports.createOrder = async (req, res) => {
-	const { title, year, isbn } = req.body;
+	const { title, goal, email } = req.body;
 	// const OrderInfo = req.body;
 
 	try {
 		Orders = await OrderModel.build({
 			title: title,
-			year: year,
-			isbn: isbn,
+			goal: goal,
+			created_by: email,
 		});
 		await Orders.save();
 		res.status(200).json({

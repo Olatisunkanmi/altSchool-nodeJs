@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Books</title>
+	</head>
+	<body>
+		<% if (user) { %>
+		<p>Welcome <%= user.username %> to ChainFundIt</p>
+		<p>Below is a list of all available Campaigns</p>
+		<ul>
+			<% books.forEach(function(orders) { %>
+			<li><%= orders.title %></li>
+			<% }); %>
+		</ul>
+		<br />
+		<form action="/logout" method="post">
+			<button type="submit">Logout</button>
+		</form>
+
+		<% } else { %>
+		<p>
+			Please <a href="/login">login</a> to view the Campaigns List
+		</p>
+		<% } %>
+	</body>
+</html>

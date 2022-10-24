@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes) => {
 				primaryKey: true,
 			},
 			goal: {
-				type: DataTypes.STRING,
+				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
 			chained_by: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING,
 				allowNull: true,
 			},
 			created_by: {
