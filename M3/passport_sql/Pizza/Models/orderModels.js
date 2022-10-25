@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
 				autoIncrement: true,
 				primaryKey: true,
 			},
+			title: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 			goal: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
@@ -17,6 +21,11 @@ module.exports = (sequelize, DataTypes) => {
 			},
 			created_by: {
 				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			state: {
+				type: DataTypes.STRING,
+				defaultValue: 'Active',
 				allowNull: false,
 			},
 			created_at: {
