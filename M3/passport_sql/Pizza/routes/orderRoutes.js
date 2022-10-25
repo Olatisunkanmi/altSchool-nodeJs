@@ -3,6 +3,6 @@ const orderController = require('../Controllers/orderController');
 
 Router.route('/').post(orderController.createOrder);
 
-// Router.route('/chain').post(orderController)
+// Router.route('/:id/chain').post(orderController);
 
 module.exports = Router;
