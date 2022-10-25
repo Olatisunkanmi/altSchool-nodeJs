@@ -1,5 +1,5 @@
 const db = require('../utils/db');
-
+const catchAsync = require('../utils/catchAsync');
 // declare
 var Orders;
 
@@ -68,3 +68,7 @@ exports.deleteOrder = async (req, res, next) => {
 		res.status(500).send(error);
 	}
 };
+
+exports.chainCampaign = catchAsync(async (req, res, next) => {
+	const campaignsId = req.params.id;
+});
